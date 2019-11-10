@@ -1,0 +1,9 @@
+body {
+    background-color: black;
+}
+
+.wrapper {
+    background-color: black;
+    margin: 20px auto 20px auto;
+    width: 70%
+}

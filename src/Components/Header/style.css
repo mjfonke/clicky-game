@@ -1,0 +1,14 @@
+.jumbotron {
+    background-image: url("nightsky.jpeg");
+}
+
+h1 {
+    font-family:'Alfa Slab One', cursive;
+    color: black;
+    text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+}
+
+h3 {
+    font-family:'Audiowide', cursive;
+    color: white
+}

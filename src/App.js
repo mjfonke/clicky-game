@@ -5,17 +5,17 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Wrapper from "./Components/Wrapper";
 import cards from "./cards.json";
-// import * as Animatable from "react-native-animatable";
 
 class App extends Component {
-
+   
     state = {
         cards,
         message: "",
         click: [],
         score: 0,
         topScore: 0,
-        animation: false
+        color: "",
+        animated: false
       };
 
       shuffleData = data => {
@@ -31,7 +31,7 @@ class App extends Component {
       }
 
       componentDidMount =() => {
-        this.setState({message: "Click an image to begin!"})
+        this.setState({message: "Click an image to begin!"});
       }
 
       resetData = data => {
@@ -51,22 +51,30 @@ class App extends Component {
           this.setState(()=> ({
             score: newScore,
             topScore: newTopScore,
-            message: "You guessed correctly"
+            message: "You guessed correctly",
+            color: "text-success",
+            animated: false
           }));
           if (newScore === 12) {
             this.setState({
               score: 0,
               message: "You Won!!! Click an image to start",
-              click: []
-            })
+              click: [],
+              color: "text-white",
+              animated: false
+            });
+
+            
           }
         } else {
           this.setState({
             score: 0,
             message: "Incorrect! GAME OVER!! Try again!",
-            click: []
-            // cards: this.resetData(cards)
-          })
+            click: [],
+            animated: true,
+            color: "text-danger",
+            cards: this.resetData(cards)
+          });
         }
       }
     
@@ -77,9 +85,12 @@ class App extends Component {
             message = {this.state.message}
             score = {this.state.score}
             topScore = {this.state.topScore}
+            color = {this.state.color}
             />
             <Header/>
-            <Wrapper>
+            <Wrapper
+            animated = {this.state.animated}
+            >
             {this.state.cards.map(cards => (
               <Cards
               handleImgClick={this.handleImgClick}
@@ -89,6 +100,7 @@ class App extends Component {
               click={cards.click}
               />
             ))}
+
             </Wrapper>
             <Footer/>
           </div>

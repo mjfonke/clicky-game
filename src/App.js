@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Wrapper from "./Components/Wrapper";
 import cards from "./cards.json";
+// import * as Animatable from "react-native-animatable";
 
 class App extends Component {
 
@@ -13,7 +14,8 @@ class App extends Component {
         message: "",
         click: [],
         score: 0,
-        topScore: 0
+        topScore: 0,
+        animation: false
       };
 
       shuffleData = data => {
@@ -54,7 +56,7 @@ class App extends Component {
           if (newScore === 12) {
             this.setState({
               score: 0,
-              message: "You Won!!! Click an Image to try again",
+              message: "You Won!!! Click an image to start",
               click: []
             })
           }
@@ -76,8 +78,8 @@ class App extends Component {
             score = {this.state.score}
             topScore = {this.state.topScore}
             />
-            <Wrapper>
             <Header/>
+            <Wrapper>
             {this.state.cards.map(cards => (
               <Cards
               handleImgClick={this.handleImgClick}

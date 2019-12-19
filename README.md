@@ -3,6 +3,7 @@
 This is a memory game built with React. It provides 12 different images and user will guess to click each image only once. When users click an image, image components are randomly shuffled and users will be notified if they guessed correctly or not each time they click an image. Users will also see their current score points and highest score for the current session will be saved and displayed.
 
 <br>
+<img src="src/images/clickygame.png">
 
 ## Technology
 React and Bootstrap
